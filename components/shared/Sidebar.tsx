@@ -1,7 +1,7 @@
 'use client'
 
 import { navLinks } from '@/constants'
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { SignedIn, SignedOut, UserButton, useUser } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -9,6 +9,12 @@ import { Button } from '../ui/button'
 
 const Sidebar = () => {
 	const pathname = usePathname()
+
+	const { isLoaded, isSignedIn, user } = useUser()
+
+	if (!isLoaded || !isSignedIn) {
+		return null
+	}
 
 	return (
 		<aside className="sidebar">
@@ -78,7 +84,7 @@ const Sidebar = () => {
 							})}
 
 							<li className="flex-center cursor-pointer gap-2 p-4">
-								<UserButton afterSignOutUrl="/" showName />
+								<UserButton showName />
 							</li>
 						</ul>
 					</SignedIn>

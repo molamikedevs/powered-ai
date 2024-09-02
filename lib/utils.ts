@@ -7,7 +7,7 @@ import { twMerge } from 'tailwind-merge'
 import { aspectRatioOptions } from '@/constants'
 
 export function cn(...inputs: ClassValue[]) {
-	return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs))
 }
 
 // ERROR HANDLER

@@ -129,7 +129,7 @@ export const transformationTypes = {
 	},
 	removeBackground: {
 		type: 'removeBackground',
-		title: 'Background Remove',
+		title: 'Background Removal',
 		subTitle: 'Removes the background of the image using AI',
 		config: { removeBackground: true },
 		icon: 'camera.svg',
